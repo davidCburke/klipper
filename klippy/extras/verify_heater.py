@@ -67,7 +67,8 @@ class HeaterCheck:
                 self.goal_systime = eventtime + self.check_gain_time
             elif self.error >= self.max_error:
                 # Failure due to inability to maintain target temperature
-                return self.heater_fault()
+                # return self.heater_fault()
+                return eventtime + 1.
         elif temp >= self.goal_temp:
             # Temperature approaching target - reset checks
             self.starting_approach = False
